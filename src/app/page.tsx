@@ -10,18 +10,12 @@ interface Submission {
 }
 
 const HOURS = [9, 12, 15, 18, 21];
-const DAYS = 7;
-
 function getDates(): string[] {
   const dates: string[] = [];
-  const now = new Date();
-  const start = new Date(now);
-  start.setDate(start.getDate() + 1);
-  start.setHours(0, 0, 0, 0);
-  for (let d = 0; d < DAYS; d++) {
-    const date = new Date(start);
-    date.setDate(start.getDate() + d);
-    dates.push(date.toISOString().split("T")[0]);
+  const start = new Date("2026-03-07T00:00:00");
+  const end = new Date("2026-03-17T00:00:00");
+  for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+    dates.push(d.toISOString().split("T")[0]);
   }
   return dates;
 }
