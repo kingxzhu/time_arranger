@@ -12,10 +12,16 @@ interface Submission {
 const HOURS = [9, 12, 15, 18, 21];
 function getDates(): string[] {
   const dates: string[] = [];
-  const start = new Date("2026-03-07T00:00:00");
-  const end = new Date("2026-03-17T00:00:00");
-  for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
-    dates.push(d.toISOString().split("T")[0]);
+  const ranges = [
+    ["2026-03-07", "2026-03-07"],
+    ["2026-03-18", "2026-03-29"],
+  ];
+  for (const [startStr, endStr] of ranges) {
+    const start = new Date(startStr + "T00:00:00");
+    const end = new Date(endStr + "T00:00:00");
+    for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+      dates.push(d.toISOString().split("T")[0]);
+    }
   }
   return dates;
 }
