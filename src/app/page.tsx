@@ -13,8 +13,7 @@ const HOURS = [9, 12, 15, 18, 21];
 function getDates(): string[] {
   const dates: string[] = [];
   const ranges = [
-    ["2026-03-07", "2026-03-07"],
-    ["2026-03-18", "2026-03-29"],
+    ["2026-04-01", "2026-04-14"],
   ];
   for (const [startStr, endStr] of ranges) {
     const start = new Date(startStr + "T00:00:00");
